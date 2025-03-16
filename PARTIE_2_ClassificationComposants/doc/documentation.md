@@ -43,12 +43,16 @@ Pour construire le modele on procede comme suit
 Deux sous onglets vont apparaitre qui permettent de voir l effet de l extraction des features par ces algorithmes
 Sous l'onglet "image" et l'onglet "Objet Detection"
 
-**i. Onglet Imange**
+**i. Onglet Image**
+
+
 ![overview](edge_image.PNG)
 
 Le Feature Explorer montre une separation correcte entre les classes mais indique un chevauchement entre BACKGROUND et LED source potentielle d erreurs de classification Tandis que la classe B7S est bien regroupee les similarites entre les donnees de BACKGROUND et LED compliquent la distinction entre ces categories Pour ameliorer la classification il est recommande de multiplier les echantillons distincts de reduire les variations au sein des classes et d optimiser l extraction des caracteristiques Une autre solution serait d explorer une nouvelle methode de reduction de dimensionalite ou de recourir a un modele plus avance tel qu un CNN 1D afin de mieux separer les classes
 
 **ii. Onglet Objet Detection**
+
+
 ![overview](objetDetection.PNG)
 
 Le modele avec un F1 Score de 833 montre de bonnes performances globales bien qu il souffre d une confusion notable entre B7S et BACKGROUND 125 Ce probleme est exacerbe par la presence de deux labels BACKGROUND dont l un ajoute manuellement et l autre genere automatiquement par Edge Impulse entrainant une mauvaise classification a 100 pour le second BACKGROUND Pour resoudre cela il est necessaire de supprimer le BACKGROUND en double d augmenter le nombre d echantillons de B7S afin de distinguer cette classe de BACKGROUND et de reequilibrer les classes pour minimiser les biais Si les erreurs persistent l utilisation d un modele plus avance tel qu un CNN 1D pourrait renforcer la robustesse de la classification
