@@ -42,12 +42,12 @@ Les vibrations sont enregistrées en temps réel depuis l'IMU intégré sur l’
 - Accélération (`aX`, `aY`, `aZ`)
 - Vitesse angulaire du gyroscope (`gX`, `gY`, `gZ`)
 
-###  Code Arduino utilisé pour envoyer les données série
+### Code Arduino utilisé pour envoyer les données série
 Un script Arduino récupère les données de l’IMU et les envoie au port série.
 
 
 
-## 2. Enregistrement des données en CSV**
+## 2. Enregistrement des données en CSV
 Un script Python `serial_to_csv.py` lit les données envoyées par l’Arduino et les enregistre dans des fichiers `.csv`.
 
 ###  Fonctionnement :
@@ -78,14 +78,6 @@ Une fois le modèle TensorFlow Lite entraîné, il est déployé sur l'Arduino N
 3. Compiler et téléverser le code sur l’**Arduino Nano 33 BLE.
 4. Tester la reconnaissance des vibrations **en temps réel**.
 
-##  5. Résultats et Améliorations
-📊 Précision du modèle : `~90%`  
-📉 **Latence de l’inférence : `~50ms`
-
-## Améliorations possibles :
-- Augmenter le dataset avec plus de types de vibrations.
-- Optimiser le modèle pour réduire la consommation mémoire.
-- Tester sur d'autres capteurs pour plus de robustesse.
 
 
 ## Liens utiles
