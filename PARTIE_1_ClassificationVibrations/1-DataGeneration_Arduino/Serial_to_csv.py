@@ -7,7 +7,7 @@ Programme de collecte de données IMU via un port série et enregistre dans un f
 - Les données sont stockées dans un fichier CSV (`vibration1.csv`).
 - Il enregistre 120 échantillons par vibration, puis attend un nouveau vibration.
 - À chaque nouveau vibration détectée, il affiche le nombre total de vibration enregistrés.
-- Le programme s'arrête lorsque l'utilisateur appuie sur Ctrl+C.
+- Le programme s'arrête lorsque l'utilisateur appuie sur Ctrl+C. """
 
 
 import serial  # Importation de la bibliothèque pour la communication série
