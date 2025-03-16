@@ -17,19 +17,20 @@ Pour construire le modèle on procède comme suit:
 2. Sélection d'un modèle de type Transfer Learning pour l'entraînement. Ici, "Objet detection"
 3. Enregistrement et validation de l'architecture du modèle.
 
+Deux sous onglet vont apparait qui permet de voir l'effet de l'extraction des features par ces algorithme.
+
 ## 5. Entraînement et Optimisation du Modèle
 Une fois le modèle configuré, l'entraînement est lancé dans **Model training**.
 
 1. Division des données en **train (80%)** et **test (20%)**.
 2. Réglage des paramètres d'entraînement :
-   - **Nombre d'époques** : 50
+   - **Nombre d'époques** : 100
    - **Taux d'apprentissage** : 0.001
    - **Taille du batch** : 16
 3. Exécution de l'entraînement et analyse des performances :
    - **Précision du modèle** (doit être supérieure à 85%).
    - **Confusion matrix** pour vérifier les erreurs de classification.
 
----
 
 ## 6. Déploiement et Intégration sur Arduino
 
