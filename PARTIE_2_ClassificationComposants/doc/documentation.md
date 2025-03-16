@@ -21,6 +21,12 @@ Deux sous onglet vont apparait qui permet de voir l'effet de l'extraction des fe
 Sous l'onglet "image" et l'onglet
 ![overview](edge_image.PNG)
 
+Le **Feature Explorer** montre une séparation correcte entre les classes, mais indique un **chevauchement entre BACKGROUND et LED**, source potentielle d’erreurs de classification. Tandis que la classe **B7S est bien regroupée**, les similitudes entre les données de BACKGROUND et LED compliquent la distinction entre ces catégories. Pour améliorer la classification, il est recommandé de **multiplier les échantillons distincts**, de **réduire les variations au sein des classes**, et d’**optimiser l’extraction des caractéristiques**. Une autre solution serait d’explorer une **nouvelle méthode de réduction de dimensionnalité** ou de recourir à un **modèle plus avancé**, tel qu’un **CNN 1D**, afin de mieux séparer les classes.
+
+
+![overview](objetDetection.PNG)
+Le modèle, avec un **F1 Score de 83,3%**, montre de bonnes performances globales, bien qu'il souffre d'une **confusion notable entre B7S et BACKGROUND (12,5%)**. Ce problème est exacerbé par la **présence de deux labels "BACKGROUND"**, dont l'un ajouté manuellement et l'autre généré automatiquement par Edge Impulse, entraînant une **mauvaise classification à 100% pour le second BACKGROUND**. Pour résoudre cela, il est nécessaire de **supprimer le BACKGROUND en double**, d'**augmenter le nombre d'échantillons de B7S** afin de distinguer cette classe de BACKGROUND, et de **rééquilibrer les classes** pour minimiser les biais. Si les erreurs persistent, l'utilisation d'un **modèle plus avancé**, tel qu’un CNN 1D, pourrait renforcer la robustesse de la classification.
+
 ## 5. Entraînement et Optimisation du Modèle
 Une fois le modèle configuré, l'entraînement est lancé dans **Model training**.
 
