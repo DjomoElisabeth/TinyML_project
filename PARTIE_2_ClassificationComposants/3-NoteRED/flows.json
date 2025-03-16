@@ -1,1 +1,172 @@
+[
+    {
+        "id": "donnnees_serie",
+        "type": "serial in",
+        "z": "flow",
+        "name": "Données Série",
+        "serial": "port_serie",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            ["parser_json"]
+        ]
+    },
+    {
+        "id": "parser_json",
+        "type": "json",
+        "z": "flow",
+        "name": "Parser JSON",
+        "x": 320,
+        "y": 100,
+        "wires": [
+            ["tri_composants"]
+        ]
+    },
+    {
+        "id": "tri_composants",
+        "type": "switch",
+        "z": "flow",
+        "name": "Tri des composants",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Resistance",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Condensateur",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "LED",
+                "vt": "str"
+            }
+        ],
+        "x": 500,
+        "y": 100,
+        "wires": [
+            ["compteur_resistance"],
+            ["compteur_condensateur"],
+            ["compteur_led"]
+        ]
+    },
+    {
+        "id": "compteur_resistance",
+        "type": "function",
+        "z": "flow",
+        "name": "Compteur Résistance",
+        "func": "context.global.cpt_resistance = (context.global.cpt_resistance || 0) + 1;\nmsg.payload = { value: context.global.cpt_resistance };\nreturn msg;",
+        "x": 700,
+        "y": 60,
+        "wires": [
+            ["affichage_resistance", "cpt_resistance"]
+        ]
+    },
+    {
+        "id": "compteur_condensateur",
+        "type": "function",
+        "z": "flow",
+        "name": "Compteur Condensateur",
+        "func": "context.global.cpt_condensateur = (context.global.cpt_condensateur || 0) + 1;\nmsg.payload = { value: context.global.cpt_condensateur };\nreturn msg;",
+        "x": 700,
+        "y": 100,
+        "wires": [
+            ["affichage_condensateur", "cpt_condensateur"]
+        ]
+    },
+    {
+        "id": "compteur_led",
+        "type": "function",
+        "z": "flow",
+        "name": "Compteur LED",
+        "func": "context.global.cpt_led = (context.global.cpt_led || 0) + 1;\nmsg.payload = { value: context.global.cpt_led };\nreturn msg;",
+        "x": 700,
+        "y": 140,
+        "wires": [
+            ["affichage_led", "cpt_led"]
+        ]
+    },
+    {
+        "id": "affichage_resistance",
+        "type": "ui_text",
+        "z": "flow",
+        "name": "Resistance",
+        "group": "UI",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Résistance",
+        "format": "{{msg.payload.value}}",
+        "x": 900,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "affichage_condensateur",
+        "type": "ui_text",
+        "z": "flow",
+        "name": "Condensateur",
+        "group": "UI",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Condensateur",
+        "format": "{{msg.payload.value}}",
+        "x": 900,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "affichage_led",
+        "type": "ui_text",
+        "z": "flow",
+        "name": "LED",
+        "group": "UI",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "LED",
+        "format": "{{msg.payload.value}}",
+        "x": 900,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "cpt_resistance",
+        "type": "debug",
+        "z": "flow",
+        "name": "cpt_resistance",
+        "active": true,
+        "tosidebar": true,
+        "x": 1050,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "cpt_condensateur",
+        "type": "debug",
+        "z": "flow",
+        "name": "cpt_condensateur",
+        "active": true,
+        "tosidebar": true,
+        "x": 1050,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "cpt_led",
+        "type": "debug",
+        "z": "flow",
+        "name": "cpt_led",
+        "active": true,
+        "tosidebar": true,
+        "x": 1050,
+        "y": 140,
+        "wires": []
+    }
+]
 
