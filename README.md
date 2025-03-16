@@ -54,12 +54,12 @@ TinyML_project/
 
 ###  **Partie 1 : Classification de Vibrations**
 1. **Acquisition des données** IMU avec l'**Arduino Nano 33 BLE Sense**.
-2. **Entraînement d’un modèle de Machine Learning** sur Edge Impulse.
+2. **Entraînement d’un modèle de Machine Learning** sur Google Colab.
 3. **Déploiement sur Arduino** pour effectuer l’inférence en temps réel.
 
 ###  **Partie 2 : Classification et Comptage de Composants**
-1. **Capture d’images** via une caméra **OV7670** connectée à Arduino.
-2. **Entraînement d’un modèle de reconnaissance d’objets** avec Edge Impulse.
+1. **Capture d’images** via une caméra **OV7675** connectée à Arduino.
+2. **Entraînement d’un modèle de reconnaissance de composants électronique** avec Edge Impulse.
 3. **Transmission des résultats** vers **Node-RED** pour l'affichage et le comptage.
 
 ---
@@ -69,14 +69,13 @@ TinyML_project/
 - **Caméra OV7670** pour l’acquisition d’images
 - **Edge Impulse** pour l'entraînement des modèles TinyML
 - **Arduino IDE** pour la programmation
-- **Jupyter Notebook** pour l'analyse et l'entraînement des modèles
+- **Google colab** pour l'analyse et l'entraînement des modèles
 - **Node-RED** pour la visualisation des résultats
 
 ---
 
 ##  Documentation et Instructions
 - Chaque partie du projet contient un **README.md** avec les détails spécifiques.
-- Les instructions pour **Edge Impulse** et la **configuration Arduino** sont dans **instructions.md**.
 - La documentation complète se trouve dans le dossier **doc/**.
 
 
