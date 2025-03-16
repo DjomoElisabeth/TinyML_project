@@ -17,6 +17,8 @@ L'application de smartphone permet de facilement reproduire la vibration, mais e
 
 En comparaison, la vibration d'un Moulinex est plus puissante et plus distincte, facilitant la classification.
 
+La carte doit également etre bien coller aux differents objets qui produise les vibrations.
+
 L'application utilisée pour générer la vibration **Infinity** est la suivante :
 
 ![overview](VibratorApp.PNG)
@@ -74,6 +76,12 @@ Le modèle est exécuté en temps réel sur la carte pour classifier les vibrati
 ## 7. Résultats et Améliorations
 
 ### 7.1. Résultats
+Teste de la vibration infinity:
+![overview](CaptureInf.PNG)
+
+Teste de la vibration du moulinex:
+![overview](CaptureV1.PNG)
+
 Le modèle parvient à distinguer les deux vibrations. Cependant, il est très sensible aux petites variations. Avant de tester une nouvelle vibration, il est préférable de laisser la carte stable pendant quelques secondes jusqu'à ce que plus rien ne s'affiche dans le moniteur série d'Arduino.
 
 ### 7.2. Améliorations Possibles
