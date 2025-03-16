@@ -56,7 +56,7 @@ L'entraînement du modèle se fait sur Google Colab en utilisant TensorFlow et T
 ## 4. Déploiement et Inférence sur Arduino
 Une fois le modèle TensorFlow Lite entraîné, il est déployé sur l'Arduino Nano 33 BLE pour faire des prédictions en temps réel.
 
- **Étapes du déploiement :
+ **Étapes du déploiement** :
 1. Convertir le modèle en TFLite pour Microcontrollers.
 2. Intégrer le modèle dans un sketch Arduino C++.
 3. Compiler et téléverser le code sur l’**Arduino Nano 33 BLE.
