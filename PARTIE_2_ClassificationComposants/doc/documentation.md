@@ -87,11 +87,7 @@ Pour ce projet Git bash a été utilisé.
 
 
 ## Resultats et Ameliorations
-Le systeme est capable de distinguer et compter les composants electroniques avec une precision d environ 78.75% Cependant des ameliorations sont possibles
--Augmentation du dataset pour reduire les erreurs de classification
--La caméra connecté n'a pas une très bonne résolution.
--Le modèle doit etre très léger pour pouvoir etre embarqué sur le micontroleur ce qui reduit la précision.
+Le systeme est capable de distinguer et compter les composants electroniques avec une precision d environ 78.75% Malheureusement le modéle était à chaque fois trop lourd pour l'arduino nano BLE.
 
-##  Conclusion
-Le projet met en oeuvre Edge Impulse et Arduino pour realiser un systeme intelligent de reconnaissance et de comptage de composants electroniques. 
+![overview](serialEdge.PNG)
 
