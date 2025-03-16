@@ -55,7 +55,7 @@ Une fois le modèle TensorFlow Lite entraîné, il est déployé sur l'Arduino N
  **Étapes du déploiement** :
 1. Convertir le modèle en TFLite pour Microcontrollers.
 2. Intégrer le modèle dans un sketch Arduino C++.
-3. Compiler et téléverser le code sur l’**Arduino Nano 33 BLE.
+3. Compiler et téléverser le code sur l’Arduino Nano 33 BLE.
 4. Tester la reconnaissance des vibrations en temps réel.
 
 
