@@ -94,3 +94,6 @@ Le systeme est capable de distinguer et compter les composants electroniques ave
 Le modèle arrive toutefois à bien classifier les composants sur edge-impulse.
 
 ![overview](resultLed.PNG)
+
+
+![overview](resultB7S.PNG)
