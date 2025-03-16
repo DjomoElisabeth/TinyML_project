@@ -1,9 +1,7 @@
 ## Objectif du projet
 L'objectif du projet et de détecter et classifier différents types de vibrations.
 
-
-
-
+![overview](doc/VibrationPartie1.PNG)
 
 #  Classification des Vibrations avec TinyML et Arduino Nano 33 BLE
 
