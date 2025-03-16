@@ -1,43 +1,57 @@
 [
     {
-        "id": "donnnees_serie",
+        "id": "tab-dashboard",
+        "type": "tab",
+        "label": "Dashboard Flow",
+        "disabled": false,
+        "info": "Flow pour incrémenter les compteurs et afficher sur le Dashboard"
+    },
+    {
+        "id": "serial-in",
         "type": "serial in",
-        "z": "flow",
+        "z": "tab-dashboard",
         "name": "Données Série",
-        "serial": "port_serie",
-        "x": 140,
-        "y": 100,
+        "serial": "3c3101bbd1aef582",
+        "x": 150,
+        "y": 320,
         "wires": [
-            ["parser_json"]
+            [
+                "json-parser"
+            ]
         ]
     },
     {
-        "id": "parser_json",
+        "id": "json-parser",
         "type": "json",
-        "z": "flow",
+        "z": "tab-dashboard",
         "name": "Parser JSON",
-        "x": 320,
-        "y": 100,
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 320,
         "wires": [
-            ["tri_composants"]
+            [
+                "switch-classes"
+            ]
         ]
     },
     {
-        "id": "tri_composants",
+        "id": "switch-classes",
         "type": "switch",
-        "z": "flow",
+        "z": "tab-dashboard",
         "name": "Tri des composants",
-        "property": "payload.type",
+        "property": "payload.composant",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "eq",
-                "v": "Resistance",
+                "v": "resistance",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "Condensateur",
+                "v": "condensateur",
                 "vt": "str"
             },
             {
@@ -46,127 +60,255 @@
                 "vt": "str"
             }
         ],
-        "x": 500,
-        "y": 100,
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 530,
+        "y": 320,
         "wires": [
-            ["compteur_resistance"],
-            ["compteur_condensateur"],
-            ["compteur_led"]
+            [
+                "counter-resistance"
+            ],
+            [
+                "counter-condensateur"
+            ],
+            [
+                "counter-led"
+            ]
         ]
     },
     {
-        "id": "compteur_resistance",
+        "id": "counter-resistance",
         "type": "function",
-        "z": "flow",
+        "z": "tab-dashboard",
         "name": "Compteur Résistance",
-        "func": "context.global.cpt_resistance = (context.global.cpt_resistance || 0) + 1;\nmsg.payload = { value: context.global.cpt_resistance };\nreturn msg;",
-        "x": 700,
-        "y": 60,
+        "func": "context.resistance = context.resistance || 0;\ncontext.resistance += 1;\nmsg.payload = context.resistance;\nreturn msg;",
+        "outputs": 1,
+        "x": 750,
+        "y": 280,
         "wires": [
-            ["affichage_resistance", "cpt_resistance"]
+            [
+                "gauge-resistance",
+                "81726647b5b0a6e2"
+            ]
         ]
     },
     {
-        "id": "compteur_condensateur",
+        "id": "counter-condensateur",
         "type": "function",
-        "z": "flow",
+        "z": "tab-dashboard",
         "name": "Compteur Condensateur",
-        "func": "context.global.cpt_condensateur = (context.global.cpt_condensateur || 0) + 1;\nmsg.payload = { value: context.global.cpt_condensateur };\nreturn msg;",
-        "x": 700,
-        "y": 100,
+        "func": "context.condensateur = context.condensateur || 0;\ncontext.condensateur += 1;\nmsg.payload = context.condensateur;\nreturn msg;",
+        "outputs": 1,
+        "x": 750,
+        "y": 320,
         "wires": [
-            ["affichage_condensateur", "cpt_condensateur"]
+            [
+                "gauge-condensateur",
+                "82623ce78e536377"
+            ]
         ]
     },
     {
-        "id": "compteur_led",
+        "id": "counter-led",
         "type": "function",
-        "z": "flow",
+        "z": "tab-dashboard",
         "name": "Compteur LED",
-        "func": "context.global.cpt_led = (context.global.cpt_led || 0) + 1;\nmsg.payload = { value: context.global.cpt_led };\nreturn msg;",
-        "x": 700,
-        "y": 140,
+        "func": "context.led = context.led || 0;\ncontext.led += 1;\nmsg.payload = context.led;\nreturn msg;",
+        "outputs": 1,
+        "x": 750,
+        "y": 360,
         "wires": [
-            ["affichage_led", "cpt_led"]
+            [
+                "gauge-led",
+                "ed865acecd49b357"
+            ]
         ]
     },
     {
-        "id": "affichage_resistance",
-        "type": "ui_text",
-        "z": "flow",
+        "id": "gauge-resistance",
+        "type": "ui_gauge",
+        "z": "tab-dashboard",
         "name": "Resistance",
-        "group": "UI",
+        "group": "1f2cd566419b4067",
         "order": 1,
-        "width": 0,
-        "height": 0,
-        "label": "Résistance",
-        "format": "{{msg.payload.value}}",
-        "x": 900,
-        "y": 60,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "cpt_resistance",
+        "label": "",
+        "format": "",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1010,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "affichage_condensateur",
-        "type": "ui_text",
-        "z": "flow",
+        "id": "gauge-condensateur",
+        "type": "ui_gauge",
+        "z": "tab-dashboard",
         "name": "Condensateur",
-        "group": "UI",
+        "group": "1f2cd566419b4067",
         "order": 2,
-        "width": 0,
-        "height": 0,
-        "label": "Condensateur",
-        "format": "{{msg.payload.value}}",
-        "x": 900,
-        "y": 100,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "cpt_condensateur",
+        "label": "",
+        "format": "",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1020,
+        "y": 320,
         "wires": []
     },
     {
-        "id": "affichage_led",
-        "type": "ui_text",
-        "z": "flow",
+        "id": "gauge-led",
+        "type": "ui_gauge",
+        "z": "tab-dashboard",
         "name": "LED",
-        "group": "UI",
+        "group": "1f2cd566419b4067",
         "order": 3,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "cpt_led",
+        "label": "",
+        "format": "",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 990,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ed865acecd49b357",
+        "type": "ui_text",
+        "z": "tab-dashboard",
+        "group": "1f2cd566419b4067",
+        "order": 6,
         "width": 0,
         "height": 0,
-        "label": "LED",
-        "format": "{{msg.payload.value}}",
-        "x": 900,
-        "y": 140,
+        "name": "",
+        "label": "cpt_led",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#005900",
+        "x": 1000,
+        "y": 480,
         "wires": []
     },
     {
-        "id": "cpt_resistance",
-        "type": "debug",
-        "z": "flow",
-        "name": "cpt_resistance",
-        "active": true,
-        "tosidebar": true,
-        "x": 1050,
-        "y": 60,
+        "id": "81726647b5b0a6e2",
+        "type": "ui_text",
+        "z": "tab-dashboard",
+        "group": "1f2cd566419b4067",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "cpt_resistance",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1020,
+        "y": 220,
         "wires": []
     },
     {
-        "id": "cpt_condensateur",
-        "type": "debug",
-        "z": "flow",
-        "name": "cpt_condensateur",
-        "active": true,
-        "tosidebar": true,
-        "x": 1050,
-        "y": 100,
+        "id": "82623ce78e536377",
+        "type": "ui_text",
+        "z": "tab-dashboard",
+        "group": "1f2cd566419b4067",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "cpt_condensateur",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1030,
+        "y": 360,
         "wires": []
     },
     {
-        "id": "cpt_led",
-        "type": "debug",
-        "z": "flow",
-        "name": "cpt_led",
-        "active": true,
-        "tosidebar": true,
-        "x": 1050,
-        "y": 140,
-        "wires": []
+        "id": "3c3101bbd1aef582",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM8",
+        "serialbaud": "115200",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "1f2cd566419b4067",
+        "type": "ui_group",
+        "name": "dashboard",
+        "tab": "3527655e9f511d16",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3527655e9f511d16",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]
-
