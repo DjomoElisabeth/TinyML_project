@@ -1,10 +1,6 @@
-## Objectif du projet
-L'objectif du projet et de détecter et classifier différents types de vibrations.
-
-![overview](doc/VibrationPartie1.PNG)
-
 #  Classification des Vibrations avec TinyML et Arduino Nano 33 BLE
 
+![overview](doc/VibrationPartie1.PNG)
 ## Présentation du projet
 Ce projet utilise un IMU (Inertial Measurement Unit) intégré sur la carte Arduino Nano 33 BLE Sense pour détecter et classifier différents types de vibrations en utilisant TinyML et TensorFlow Lite.
 
