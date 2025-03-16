@@ -1,7 +1,7 @@
 ## Objectif du projet
 L'objectif du projet et de détecter et classifier différents types de vibrations.
 
-![overview](doc/vibrationPartie1.PNG)
+
 
 
 
