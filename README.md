@@ -35,14 +35,12 @@ TinyML_project/
 │   ├── README.md  # Explications spécifiques à la partie 2
 │   ├── 1-EdgeImpulse/
 │   │   ├── link_to_edge_impulse.md  # Lien vers le projet Edge Impulse
-│   │   ├── instructions.md  # Instructions de reproduction
 │   │
 │   ├── 2-ArduinoCamera/
 │   │   ├── arduino_camera_classification.ino  # Code Arduino pour la capture & classification d’images
 │   │
 │   ├── 3-NodeRED/
 │   │   ├── flows.json  # Export du flux Node-RED
-│   │   ├── dashboard/  # Configuration et affichage des résultats
 │   │
 │   ├── doc/
 │       ├── documentation.md  # Explications détaillées et schémas
