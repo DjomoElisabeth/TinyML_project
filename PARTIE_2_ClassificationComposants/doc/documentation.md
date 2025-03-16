@@ -18,6 +18,8 @@ Pour construire le modèle on procède comme suit:
 3. Enregistrement et validation de l'architecture du modèle.
 
 Deux sous onglet vont apparait qui permet de voir l'effet de l'extraction des features par ces algorithme.
+Sous l'onglet "image" et l'onglet
+![overview](edge_image.PNG)
 
 ## 5. Entraînement et Optimisation du Modèle
 Une fois le modèle configuré, l'entraînement est lancé dans **Model training**.
