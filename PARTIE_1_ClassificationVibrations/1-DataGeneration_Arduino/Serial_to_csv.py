@@ -14,7 +14,7 @@ import serial  # Importation de la bibliothèque pour la communication série
 import csv  # Importation de la bibliothèque pour l'écriture des fichiers CSV
 
 #  Configuration du port série
-SERIAL_PORT = 'COM8'  #  Modifier en fonction de ton port série 
+SERIAL_PORT = 'COM8'  #  Modifier en fonction du port série 
 BAUD_RATE = 9600  # Débit en bauds de la communication série
 numSamples = 120  # Nombre d'échantillons à collecter pour chaque geste
 Number_of_vibration = 0  # Compteur de vibration enregistrés
