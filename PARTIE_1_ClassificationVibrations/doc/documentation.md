@@ -1,3 +1,9 @@
+# Classification de Deux Types de Vibrations avec Machine Learning
+## 1. Introduction
+
+Ce projet vise à créer un modèle de Machine Learning permettant de classifier deux types de vibrations à partir des données d'un capteur IMU (accéléromètre et gyroscope) intégré sur une carte Arduino Nano 33 BLE Sense. Le but est d'entraîner un modèle *TinyML qui pourra reconnaître les vibrations en temps réel directement sur la carte Arduino.
+
+
 Explications sur la façon de reproduire l’expérience.
 Screenshots des résultats
 Description de la configuration Arduino, des librairies utilisées, etc.
@@ -7,14 +13,11 @@ Les deux vibration s "infinity" et "heartbeat" ont été généré en utilisant 
 ![overview](VibratorApp.PNG)
 
 
-# Documentation : Classification de Deux Types de Vibrations avec Machine Learning
 
-## 1. Introduction
-Ce projet vise à créer un modèle de Machine Learning permettant de classifier **deux types de vibrations** à partir des données d'un capteur IMU (accéléromètre et gyroscope) intégré sur une carte **Arduino Nano 33 BLE Sense**.
 
-Le but est d'entraîner un modèle **TinyML** qui pourra reconnaître les vibrations en temps réel directement sur la carte Arduino.
 
----
+
+
 
 ## 2. Matériel et Logiciels Utilisés
 
@@ -27,7 +30,7 @@ Le but est d'entraîner un modèle **TinyML** qui pourra reconnaître les vibrat
 - **Arduino IDE** (avec la bibliothèque `Arduino_LSM9DS1` pour lire l'IMU)
 - **Python 3.x** (avec `pyserial`, `numpy`, `pandas`, `matplotlib`)
 - **Google Colab** (pour entraîner le modèle avec TensorFlow Lite)
-- **Edge Impulse Studio** (optionnel, pour la gestion automatique des données)
+
 
 ---
 
@@ -41,17 +44,10 @@ Nous enregistrons les valeurs des capteurs suivantes :
 ### 3.1. Détection et Capture des Vibrations
 Un programme Arduino envoie les données via le port série. Un script Python (`serial_to_csv.py`) les enregistre dans des fichiers `.csv`.
 
-#### Exemple de format des données :
-```
-aX,aY,aZ,gX,gY,gZ
-0.02,-0.01,9.81,0.001,0.002,0.003
-0.03,-0.02,9.79,0.002,0.001,0.004
-...
-```
+
 
 Chaque fichier CSV correspond à un type de vibration (ex: `vibration1.csv`, `vibration2.csv`).
 
----
 
 ## 4. Entraînement du Modèle de Machine Learning
 
