@@ -10,7 +10,7 @@ Ce projet utilise un IMU (Inertial Measurement Unit) intégré sur la carte Ardu
 
 Les données sont collectées via l’accéléromètre et le gyroscope, stockées dans des fichiers CSV, puis utilisées pour entraîner un modèle de machine learning embarqué.
 
-📌 Objectifs du projet :
+## Objectifs du projet :
 - Récupérer les signaux de vibrations avec l'IMU.
 - Stocker et étiqueter ces signaux sous forme de fichiers CSV.
 - Entraîner un modèle TinyML pour la reconnaissance des vibrations sur Google Colab avec TensorFlow Lite.
