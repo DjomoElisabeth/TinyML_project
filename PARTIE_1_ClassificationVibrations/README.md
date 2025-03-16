@@ -35,21 +35,6 @@ Les données sont collectées via l’accéléromètre et le gyroscope, stockée
 - TensorFlow Lite pour TinyML
 
 
-## 1. Collecte et Enregistrement des Données
-Les vibrations sont enregistrées en temps réel depuis l'IMU intégré sur l’Arduino.
-
-## Données récupérées :
-- Accélération (`aX`, `aY`, `aZ`)
-- Vitesse angulaire du gyroscope (`gX`, `gY`, `gZ`)
-
-### Code Arduino utilisé pour envoyer les données série
-Un script Arduino récupère les données de l’IMU et les envoie au port série.
-
-
-
-## 2. Enregistrement des données en CSV
-Un script Python `serial_to_csv.py` lit les données envoyées par l’Arduino et les enregistre dans des fichiers `.csv`.
-
 ###  Fonctionnement :
 1. Connexion au port série pour lire les données envoyées par l’IMU.
 2. Enregistrement des échantillons dans un fichier `.csv` avec un étiquetage manuel des vibrations.
@@ -58,7 +43,6 @@ Un script Python `serial_to_csv.py` lit les données envoyées par l’Arduino e
 ## Comment étiqueter les données ?
 - Modifier "le nom du fichier CSV" dans le code python avant l’enregistrement.
 - Exemple : `"vibration1.csv"` pour enregistrer des vibrations dues à la marche.
-
 
 ## 3. Entraînement du Modèle TinyML
 L'entraînement du modèle se fait sur Google Colab en utilisant TensorFlow et TensorFlow Lite.
@@ -76,8 +60,7 @@ Une fois le modèle TensorFlow Lite entraîné, il est déployé sur l'Arduino N
 1. Convertir le modèle en TFLite pour Microcontrollers.
 2. Intégrer le modèle dans un sketch Arduino C++.
 3. Compiler et téléverser le code sur l’**Arduino Nano 33 BLE.
-4. Tester la reconnaissance des vibrations **en temps réel**.
-
+4. Tester la reconnaissance des vibrations en temps réel.
 
 
 ## Liens utiles
