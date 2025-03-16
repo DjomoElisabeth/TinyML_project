@@ -21,7 +21,7 @@ int samplesRead = numSamples; // Variable pour suivre les échantillons lus
 
 void setup() {
   Serial.begin(9600); // Initialise la communication série avec une vitesse de 9600 bauds
-  while (!Serial); // Attendre que le Moniteur Série soit prêt (utile pour les cartes USB natives)
+  while (!Serial); // Attendre que le Moniteur Série soit prêt 
 
   if (!IMU.begin()) { // Vérifie si le capteur IMU s'initialise correctement
     Serial.println("Échec de l'initialisation de l'IMU !");
