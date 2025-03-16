@@ -1,2 +1,2 @@
 
-![overview](PARTIE_1_ClassificationVibrations/doc/vibrationPartie1.PNG)
+![overview](doc/vibrationPartie1.PNG)
