@@ -1,37 +1,23 @@
 ## 2. Acquisition des Images
-
-Les images des composants électroniques sont capturées directement à l'aide d'**Edge Impulse** via l'interface de capture d'image.
-
-1. **Configuration du projet** sur Edge Impulse Studio.
-2. **Connexion de la caméra OV7670** à l'Arduino Nano 33 BLE Sense.
-3. **Prise de photos en direct** dans l'onglet **"Data acquisition"**.
-4. **Ajustement des paramètres** de capture pour optimiser la reconnaissance (taille, luminosité, contrastes).
-5. **Stockage des images** dans la base de données Edge Impulse.
-
----
+Les images des composants électroniques sont capturées directement à l'aide d'Edge Impulse via l'interface de capture d'image.
+Pour ce faire, on procède comme suit:
+2. Connexion de la caméra OV7675 à l'Arduino Nano 33 BLE Sense.
+3. Prise de photos en direct dans l'onglet "Data acquisition" en cliquant sur "start sampling".
 
 ## 3. Étiquetage des Données
-
-Les images capturées doivent être correctement étiquetées afin d'assurer un apprentissage efficace.
-
 1. Accès à **"Labeling queue"** dans Edge Impulse.
-2. Attribution d'un **label à chaque image** selon le type de composant (ex: "résistance", "condensateur").
+2. Attribution d'un label à chaque image selon le type de composant.
 3. Vérification et correction des labels pour garantir une classification optimale.
 
----
-
 ## 4. Conception du Modèle de Machine Learning
+Un modèle de reconnaissance d'images est conçu dans l'onglet **Impulse Design**.
+Pour construire le modèle on procède comme suit:
 
-Un modèle de reconnaissance d'images est conçu dans **Impulse Design**.
-
-1. Ajout d'un **bloc de traitement d'images** pour convertir les images en niveaux de gris (96x96 pixels).
-2. Sélection d'un **modèle de type Transfer Learning** (MobileNetV2) pour l'entraînement.
+1. Ajout d'un **bloc de traitement d'images**  ce projet a été réaliser avec "image".
+2. Sélection d'un modèle de type Transfer Learning pour l'entraînement. Ici, "Objet detection"
 3. Enregistrement et validation de l'architecture du modèle.
 
----
-
 ## 5. Entraînement et Optimisation du Modèle
-
 Une fois le modèle configuré, l'entraînement est lancé dans **Model training**.
 
 1. Division des données en **train (80%)** et **test (20%)**.
